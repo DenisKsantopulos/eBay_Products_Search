@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    tools:context=".MainActivity">
+    tools:context=".LogInActivity">
 
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_bold"
-        android:text="Create account"
+        android:text="Log In"
         android:textSize="20sp"
         android:textColor="#fdfdfd"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,35 +39,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <EditText
-        android:id="@+id/user_email"
-        android:layout_width="220dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Enter email"
-        android:inputType="textEmailAddress"
-        android:textColorHint="@color/colorHint"
-        android:textColor="#fdfdfd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_login" />
 
     <EditText
         android:id="@+id/user_pass"
         android:layout_width="220dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Enter password"
         android:inputType="textPassword"
-        android:textColorHint="@color/colorHint"
         android:textColor="#fdfdfd"
+        android:textColorHint="@color/colorHint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_email" />
+        app:layout_constraintTop_toBottomOf="@+id/user_login" />
 
     <Button
         android:id="@+id/button"
@@ -75,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:backgroundTint="#0090F5"
-        android:text="Sing Up"
+        android:text="Log In"
         android:textColor="#332703"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -89,8 +75,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
+        android:text="Don't have an acount?"
         android:textSize="16sp"
-        android:text="Already have an account?"
         android:textColor="#C2C0DB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,14 +86,14 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/linkToSingIn"
+        android:id="@+id/linkToReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
-        android:text="Sing in"
-        android:textColor="#D34836"
         android:textSize="16sp"
+        android:text="Sing up"
+        android:textColor="#D34836"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.183"
