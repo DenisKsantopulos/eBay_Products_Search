@@ -42,6 +42,9 @@ class MainActivity : AppCompatActivity() {
                 userLogin.text.clear()
                 userEmail.text.clear()
                 userPass.text.clear()
+
+                val intent = Intent(this, LogInActivity::class.java)
+                startActivity(intent)
             }
         }
     }
