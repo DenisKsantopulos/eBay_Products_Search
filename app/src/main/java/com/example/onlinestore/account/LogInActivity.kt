@@ -1,4 +1,4 @@
-package com.example.onlinestore
+package com.example.onlinestore.account
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.onlinestore.db.DbHelper
+import com.example.onlinestore.MainPageActivity
+import com.example.onlinestore.R
 
 class LogInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +19,7 @@ class LogInActivity : AppCompatActivity() {
         val linkToReg: TextView = findViewById(R.id.linkToReg)
 
         linkToReg.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, SingUpActivity::class.java)
             startActivity(intent)
         }
 
@@ -39,7 +42,7 @@ class LogInActivity : AppCompatActivity() {
                     userLogin.text.clear()
                     userPass.text.clear()
 
-                    val intent = Intent(this, ProductsActivity::class.java)
+                    val intent = Intent(this, MainPageActivity::class.java)
                     startActivity(intent)
                 } else
                     Toast.makeText(this, "User $login is NOT authorized", Toast.LENGTH_LONG).show()

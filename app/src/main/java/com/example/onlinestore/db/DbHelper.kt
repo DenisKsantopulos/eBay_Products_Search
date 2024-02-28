@@ -1,4 +1,4 @@
-package com.example.onlinestore
+package com.example.onlinestore.db
 
 import android.content.ContentValues
 import android.content.Context

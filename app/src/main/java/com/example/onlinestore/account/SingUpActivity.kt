@@ -1,4 +1,4 @@
-package com.example.onlinestore
+package com.example.onlinestore.account
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,11 +7,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.onlinestore.db.DbHelper
+import com.example.onlinestore.R
+import com.example.onlinestore.db.User
 
-class MainActivity : AppCompatActivity() {
+class SingUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_sing_up)
 
         val linkToSingIn: TextView = findViewById(R.id.linkToSingIn)
 

@@ -17,13 +17,13 @@
         android:theme="@style/Theme.OnlineStore"
         tools:targetApi="31">
         <activity
-            android:name=".ProductsActivity"
+            android:name=".MainPageActivity"
             android:exported="false" />
         <activity
-            android:name=".LogInActivity"
+            android:name=".account.LogInActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".account.SingUpActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
