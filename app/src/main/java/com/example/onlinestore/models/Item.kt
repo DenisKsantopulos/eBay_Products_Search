@@ -2,10 +2,7 @@ package com.example.onlinestore.models
 
 data class Item(
     val href: String,
-    val itemSummaries: MutableList<ItemSummary>
-)
-
-data class ItemSummary(
+    //val itemSummaries: MutableList<ItemSummary>
     val itemId: String,
     val title: String,
     val image: Image,
@@ -15,6 +12,17 @@ data class ItemSummary(
     val shippingOptions: List<ShippingOptions>?,
     val itemWebUrl: String
 )
+
+//data class ItemSummary(
+//    val itemId: String,
+//    val title: String,
+//    val image: Image,
+//    val price: Price,
+//    val seller: Seller,
+//    val condition: String,
+//    val shippingOptions: List<ShippingOptions>?,
+//    val itemWebUrl: String
+//)
 
 data class Image(
     val imageUrl: String

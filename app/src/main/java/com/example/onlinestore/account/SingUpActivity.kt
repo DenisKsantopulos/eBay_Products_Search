@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.onlinestore.MainPageActivity
 import com.example.onlinestore.db.DbHelper
 import com.example.onlinestore.R
 import com.example.onlinestore.db.User
@@ -19,7 +20,7 @@ class SingUpActivity : AppCompatActivity() {
         val linkToSingIn: TextView = findViewById(R.id.linkToSingIn)
 
         linkToSingIn.setOnClickListener{
-            val intent = Intent(this, LogInActivity::class.java)
+            val intent = Intent(this, MainPageActivity::class.java)
             startActivity(intent)
         }
 
