@@ -8,7 +8,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.onlinestore.MainPageActivity
-import com.example.onlinestore.db.DbHelper
+import com.example.onlinestore.db.DataBase
 import com.example.onlinestore.R
 import com.example.onlinestore.db.User
 
@@ -39,7 +39,7 @@ class SingUpActivity : AppCompatActivity() {
             }else{
                 val user = User(login, email, pass)
 
-                val db = DbHelper(this, null)
+                val db = DataBase(this, null)
                 db.addUser(user)
                 Toast.makeText(this,"User added",Toast.LENGTH_LONG).show()
 

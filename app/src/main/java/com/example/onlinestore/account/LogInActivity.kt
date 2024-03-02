@@ -7,7 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.example.onlinestore.db.DbHelper
+import com.example.onlinestore.db.DataBase
 import com.example.onlinestore.MainPageActivity
 import com.example.onlinestore.R
 
@@ -34,7 +34,7 @@ class LogInActivity : AppCompatActivity() {
             if (login == "" || pass == ""){
                 Toast.makeText(this,"Input field cannot be empty", Toast.LENGTH_LONG).show()
             }else{
-                val db = DbHelper(this, null)
+                val db = DataBase(this, null)
                 val isLogIn = db.getUser(login, pass)
 
                 if (isLogIn) {

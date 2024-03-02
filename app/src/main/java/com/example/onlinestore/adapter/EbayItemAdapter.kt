@@ -1,12 +1,9 @@
 package com.example.onlinestore.adapter
 
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -20,16 +17,30 @@ class EbayItemAdapter: ListAdapter<Item, EbayItemAdapter.Holder>(Comporator()){
     class Holder(view: View): RecyclerView.ViewHolder(view){
         private val binding = ItemListBinding.bind(view)
 
-        fun bind(item: Item) {
-            binding.itemNameTextView.text = item.title
-            binding.priceTextView.text = item.price.value + item.price.currency
+        @SuppressLint("SetTextI18n")
+        fun bind(item: Item) = with(binding){
+            itemNameTextView.text = item.itemSummaries.firstOrNull()?.title ?: "No title"
+            priceTextView.text = item.itemSummaries.firstOrNull()?.price?.toString() ?: "No price"
 
             val iconImage = binding.imageView
-            Picasso.get().load(item.image.imageUrl).into(iconImage)
+            Picasso.get().load(item.itemSummaries.firstOrNull()?.image?.imageUrl).into(iconImage)
+            binding.feedbackTextView.text = item.itemSummaries.firstOrNull()?.seller?.username
 
-            binding.sellerTextView.text = item.seller.username
-            binding.feedbackTextView.text = item.seller.feedbackPercentage + "%"
+            binding.priceTextView.text = item.itemSummaries.firstOrNull()?.price?.value + item.itemSummaries.firstOrNull()?.price?.currency
         }
+
+//        fun bind(item: Item) {
+//            binding.itemNameTextView.text = item.title
+//            binding.itemNameTextView.text = item.description
+//            //binding.priceTextView.text = item.price.value // + item.price.currency
+//
+////            val iconImage = binding.imageView
+////            Picasso.get().load(item.image.imageUrl).into(iconImage)
+//
+//            //binding.sellerTextView.text = item.seller.username
+//           // binding.feedbackTextView.text = item.seller.feedbackPercentage // + "%"
+//        }
+
 
     }
 
@@ -37,7 +48,8 @@ class EbayItemAdapter: ListAdapter<Item, EbayItemAdapter.Holder>(Comporator()){
     class Comporator: DiffUtil.ItemCallback<Item>(){
 
         override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean {
-            return oldItem.itemId == newItem.itemId
+            return oldItem.itemSummaries.first().itemId == newItem.itemSummaries.first().itemId
+              //return oldItem.itemSummaries. == newItem.itemSummaries.itemId
         }
 
         override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean {
