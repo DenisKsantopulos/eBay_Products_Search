@@ -6,20 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".MainPageActivity">
 
-<!--    <EditText-->
-<!--        android:id="@+id/et"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:ems="10"-->
-<!--        android:hint="Search"-->
-<!--        android:inputType="text"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/imageView2" />-->
 
-    <SearchView
+    <EditText
         android:id="@+id/sv"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:ems="10"
@@ -29,11 +19,20 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
+
         android:id="@+id/btn_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
         android:layout_marginEnd="20dp"
+        android:background="@drawable/shape_rounded_conteiners"
+        android:fontFamily="@font/roboto"
         android:text="Search"
+        android:textAllCaps="false"
+        android:textColor="#2196F3"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/sv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -59,11 +58,13 @@
         app:layout_constraintTop_toBottomOf="@+id/sv">
 
         <Switch
-            android:id="@+id/sb_free"
+            android:id="@+id/sbFree"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:text="Free shipping"
+            android:textColor="#2196F3"
+            android:background="@drawable/shape_rounded_conteiners"
+            android:text="   Free shipping"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         <Space
@@ -71,12 +72,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <Switch
+        <Button
             android:id="@+id/switch3"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
+            app:backgroundTint="@null"
             android:layout_weight="1"
-            android:text="Switch"
+            android:background="@drawable/shape_rounded_conteiners"
+            android:fontFamily="@font/roboto"
+            android:text="Price range"
+            android:textColor="#2196F3"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     </LinearLayout>
