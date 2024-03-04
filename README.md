@@ -7,5 +7,12 @@ This project utilizes eBay's Browse API to access real-time listings of items on
 ## Описание
 В этом проекте используется API-интерфейс браузера eBay для доступа к спискам товаров на ebay.com в режиме реального времени с использованием языка программирования Kotlin. Пользователи могут искать товары и просматривать такие детали, как "цена с доставкой", "информация о продавце" и "состояние товара". Кроме того, пользователи могут выбрать товар. При нажатии на него вы будете перенаправлены на его страницу в браузере или мобильном приложении eBay (если оно установлено). Вы также можете применять такие параметры фильтрации, как бесплатная доставка и диапазон цен (TODO).
 # Demonstration
-![cr_acc](https://github.com/DenisKsantopulos/eBay_Products_Search/blob/master/my_res/create_acc.jpg) ![log_in](https://github.com/DenisKsantopulos/eBay_Products_Search/blob/master/my_res/log_in.jpg)
-![homa](https://github.com/DenisKsantopulos/eBay_Products_Search/blob/master/my_res/home.jpg)
+<table>
+  <tr>
+    <td><img src="https://github.com/DenisKsantopulos/eBay_Products_Search/blob/master/my_res/create_acc.jpg" alt="cr_acc" width="250"></td>
+    <td><img src="https://github.com/DenisKsantopulos/eBay_Products_Search/blob/master/my_res/log_in.jpg" alt="log_in" width="250"></td>
+    <td><img src="https://github.com/DenisKsantopulos/eBay_Products_Search/blob/master/my_res/home.jpg" alt="home" width="250"></td>
+    <td><img src="https://github.com/DenisKsantopulos/eBay_Products_Search/blob/master/my_res/search.gif" alt="gif" width="250"></td>
+  </tr>
+</table>
+
