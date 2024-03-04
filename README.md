@@ -12,7 +12,7 @@ This project utilizes eBay's Browse API to access real-time listings of items on
     <td><img src="https://github.com/DenisKsantopulos/eBay_Products_Search/blob/master/my_res/create_acc.jpg" alt="cr_acc" width="250"></td>
     <td><img src="https://github.com/DenisKsantopulos/eBay_Products_Search/blob/master/my_res/log_in.jpg" alt="log_in" width="250"></td>
     <td><img src="https://github.com/DenisKsantopulos/eBay_Products_Search/blob/master/my_res/home.jpg" alt="home" width="250"></td>
-    <td><img src="https://github.com/DenisKsantopulos/eBay_Products_Search/blob/master/my_res/search.gif" alt="gif" width="250"></td>
   </tr>
 </table>
+<img src="https://github.com/DenisKsantopulos/eBay_Products_Search/blob/master/my_res/search.gif" alt="gif" width="400">
 
