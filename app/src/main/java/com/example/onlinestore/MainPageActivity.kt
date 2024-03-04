@@ -9,12 +9,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageButton
-import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.onlinestore.account.LogInActivity
-import com.example.onlinestore.account.SingUpActivity
 import com.example.onlinestore.adapter.EbayItemAdapter
 import com.example.onlinestore.api.EbayApi
 import com.example.onlinestore.databinding.ActivityMainPageBinding
@@ -56,7 +54,6 @@ class MainPageActivity : AppCompatActivity() {
         binding.rv.layoutManager = layoutManager
 
 
-
         //When user click on search
         binding.btnSearch.setOnClickListener {
             if(binding.sv.text.toString() != "") {
@@ -64,12 +61,11 @@ class MainPageActivity : AppCompatActivity() {
                 offset = 0
                 noMoreItems = false
                 binding.defBar.visibility = View.VISIBLE
-                fetchJSON()
+                findItem()
             } else {
                 createToast("Please enter an item.")
             }
         }
-
 
         //If user scroll to bottom, fetch more item
         binding.rv.addOnScrollListener(object: RecyclerView.OnScrollListener() {
@@ -84,7 +80,7 @@ class MainPageActivity : AppCompatActivity() {
                         if ((visibleCount + pastVisible) >= total!!) {
                             offset += 50
                             binding.loadMoreBar.visibility = View.VISIBLE
-                            fetchJSON()
+                            findItem()
                         }
                     }
                 }
@@ -97,22 +93,20 @@ class MainPageActivity : AppCompatActivity() {
         binding.sbFree.setOnClickListener {
             //If already selected or not
             if(binding.sbFree.isSelected){
-                //binding.sbFree.setBackgroundColor(Color.parseColor("#1A6FB1"))
                 binding.sbFree.isSelected = false
                 offset = 0
                 noMoreItems = false
                 filterName.remove("maxDeliveryCost:0")
                 binding.defBar.visibility = View.VISIBLE
-                fetchJSON()
+                findItem()
 
             } else {
-                //binding.sbFree.setBackgroundColor(Color.RED)
                 binding.sbFree.isSelected = true
                 filterName.add("maxDeliveryCost:0")
                 offset = 0
                 noMoreItems = false
                 binding.defBar.visibility = View.VISIBLE
-                fetchJSON()
+                findItem()
             }
         }
 
@@ -167,8 +161,8 @@ class MainPageActivity : AppCompatActivity() {
     }
 
 
-    //Fetch ebay item
-    fun fetchJSON(){
+    //Find ebay item
+    fun findItem(){
 
         isLoading = true
 
