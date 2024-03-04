@@ -24,11 +24,13 @@
 
     <TextView
         android:id="@+id/tvItemName"
-        android:layout_width="220dp"
-        android:layout_height="70dp"
+        android:layout_width="145dp"
+        android:layout_height="50dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins"
         android:text="title"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,9 +38,11 @@
         android:id="@+id/priceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="-3dp"
         android:layout_marginEnd="10dp"
+        android:fontFamily="@font/poppins"
         android:text="price"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvItemName" />
 
@@ -46,17 +50,19 @@
         android:id="@+id/shippingTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins"
         android:text="shipping"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@+id/priceTextView"
         app:layout_constraintTop_toBottomOf="@+id/priceTextView" />
 
     <TextView
         android:id="@+id/sellerTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/poppins"
         android:text="seller"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/tvItemName" />
@@ -65,13 +71,14 @@
         android:id="@+id/tvCondition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins"
         android:text="condition"
-        app:layout_constraintStart_toStartOf="@+id/sellerTextView"
-        app:layout_constraintTop_toBottomOf="@+id/sellerTextView" />
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/shippingTextView"
+        app:layout_constraintTop_toBottomOf="@+id/shippingTextView" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/ibNoFav"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginTop="20dp"
@@ -82,16 +89,16 @@
         app:srcCompat="@drawable/not_red_heart" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="43dp"
-        android:layout_height="43dp"
+        android:id="@+id/ibFav"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="10dp"
         android:background="@android:color/transparent"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/red_heart"
-        android:visibility="gone"/>
+        app:srcCompat="@drawable/red_heart" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

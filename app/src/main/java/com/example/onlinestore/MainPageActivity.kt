@@ -102,7 +102,7 @@ class MainPageActivity : AppCompatActivity() {
                 offset = 0
                 noMoreItems = false
                 filterName.remove("maxDeliveryCost:0")
-                binding.sbFree.visibility = View.VISIBLE
+                binding.defBar.visibility = View.VISIBLE
                 fetchJSON()
 
             } else {
@@ -111,7 +111,7 @@ class MainPageActivity : AppCompatActivity() {
                 filterName.add("maxDeliveryCost:0")
                 offset = 0
                 noMoreItems = false
-                binding.sbFree.visibility = View.VISIBLE
+                binding.defBar.visibility = View.VISIBLE
                 fetchJSON()
             }
         }

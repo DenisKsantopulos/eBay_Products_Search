@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat.startActivity
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.onlinestore.MainPageActivity
 import com.example.onlinestore.R
@@ -42,7 +43,7 @@ class EbayItemAdapter(private val result: List<ItemSummary>, private val context
 
         val fullTitle = item.title
         val words = fullTitle.split(" ")
-        val truncatedTitle = words.take(3).joinToString(" ") + "..."
+        val truncatedTitle = words.take(4).joinToString(" ") + "..."
         holder.binding.tvItemName.text = truncatedTitle
 
         //holder.binding.itemNameTextView.text = item.title
@@ -52,9 +53,11 @@ class EbayItemAdapter(private val result: List<ItemSummary>, private val context
 
         if(shipping != null) {
             for (shippingIndex in shipping) {
-                if (shippingIndex.shippingCost.value == "0.00") {
+                if (shippingIndex.shippingCost != null && shippingIndex.shippingCost.value == "0.00") {
                     val shippingPrice = "Free Shipping"
                     holder.binding.shippingTextView.text = shippingPrice
+                } else if (shippingIndex.shippingCost == null) {
+                    holder.binding.shippingTextView.text = ""
                 } else {
                     holder.binding.shippingTextView.text =
                         "+ " + shippingIndex.shippingCost.value + shippingIndex.shippingCost.currency
@@ -63,6 +66,13 @@ class EbayItemAdapter(private val result: List<ItemSummary>, private val context
         }
         //seller info
         holder.binding.sellerTextView.text = item.seller.username
+
+//        holder.binding.sellerTextView.text = if (item.seller.username.length > 8) {
+//            item.seller.username.substring(0, 10) + "..."
+//        } else {
+//            item.seller.username
+//        }
+
         //holder.binding.feedbackTextView.text = item.seller.feedbackPercentage + "%"
         holder.binding.tvCondition.text = item.condition
 
@@ -70,6 +80,27 @@ class EbayItemAdapter(private val result: List<ItemSummary>, private val context
         val iconImage = holder.binding.imageView
         Picasso.get().load(item.image.imageUrl).into(iconImage)
 
+        if (holder.binding.ibNoFav.isVisible){
+
+        }
+        holder.binding.ibNoFav.setOnClickListener{
+            if (holder.binding.ibNoFav.isVisible){
+                holder.binding.ibNoFav.isVisible = false
+                holder.binding.ibFav.isVisible = true
+            }else{
+                holder.binding.ibNoFav.isVisible = true
+                holder.binding.ibFav.isVisible = false
+            }
+        }
+        holder.binding.ibFav.setOnClickListener{
+            if (holder.binding.ibNoFav.isVisible){
+                holder.binding.ibNoFav.isVisible = false
+                holder.binding.ibFav.isVisible = true
+            }else{
+                holder.binding.ibNoFav.isVisible = true
+                holder.binding.ibFav.isVisible = false
+            }
+        }
 
         holder.itemView.setOnClickListener {
             val url = item.itemWebUrl
