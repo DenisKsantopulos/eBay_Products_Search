@@ -33,5 +33,5 @@ https://developer.ebay.com
 # TODO
 - Add Firebase or Room
 - Add page with favorite products
-- MVVVM
+- MVVM
 - Jetpack compose
