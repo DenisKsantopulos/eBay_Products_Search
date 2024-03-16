@@ -1,4 +1,4 @@
-package com.example.onlinestore.adapter
+package com.example.onlinestore.presentation.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context

@@ -11,8 +11,14 @@ import com.example.onlinestore.presentation.MainPageActivity
 import com.example.onlinestore.db.DataBase
 import com.example.onlinestore.R
 import com.example.onlinestore.db.User
+import com.example.onlinestore.domain.usecase.SingUpUseCase
+import com.example.onlinestore.domain.utils.CreateToast
 
 class SingUpActivity : AppCompatActivity() {
+
+    val toast = CreateToast()
+
+    private val singUp = SingUpUseCase()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sing_up)
@@ -30,26 +36,7 @@ class SingUpActivity : AppCompatActivity() {
         val button: Button = findViewById(R.id.button)
 
         button.setOnClickListener {
-            val login = userLogin.text.toString().trim()
-            val email = userEmail.text.toString().trim()
-            val pass = userPass.text.toString().trim()
-
-            if (login == "" || email == "" || pass == "") {
-                Toast.makeText(this, "Input field cannot be empty", Toast.LENGTH_LONG).show()
-            } else {
-                val user = User(login, email, pass)
-
-                val db = DataBase(this, null)
-                db.addUser(user)
-                Toast.makeText(this, "User added", Toast.LENGTH_LONG).show()
-
-                userLogin.text.clear()
-                userEmail.text.clear()
-                userPass.text.clear()
-
-                val intent = Intent(this, LogInActivity::class.java)
-                startActivity(intent)
-            }
+            singUp.singUp(this, this, userLogin, userEmail, userPass)
         }
     }
 }

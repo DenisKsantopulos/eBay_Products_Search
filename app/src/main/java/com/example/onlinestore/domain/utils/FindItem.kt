@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.util.Log
 import android.view.View
 import com.example.onlinestore.presentation.MainPageActivity
-import com.example.onlinestore.adapter.EbayItemAdapter
+import com.example.onlinestore.presentation.adapter.EbayItemAdapter
 import com.example.onlinestore.api.EbayApi
 import com.example.onlinestore.databinding.ActivityMainPageBinding
 import com.example.onlinestore.models.Item
