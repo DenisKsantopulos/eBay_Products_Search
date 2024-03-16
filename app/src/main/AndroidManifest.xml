@@ -21,13 +21,13 @@
             android:name=".api.EbayApi"
             android:exported="false" />
         <activity
-            android:name=".MainPageActivity"
+            android:name=".presentation.MainPageActivity"
             android:exported="false" />
         <activity
-            android:name=".account.LogInActivity"
+            android:name=".presentation.account.LogInActivity"
             android:exported="false" />
         <activity
-            android:name=".account.SingUpActivity"
+            android:name=".presentation.account.SingUpActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

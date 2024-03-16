@@ -1,8 +1,6 @@
-package com.example.onlinestore.usecase
+package com.example.onlinestore.domain.utils
 
 import android.content.Context
-import android.graphics.Color
-import android.graphics.PorterDuff
 import android.widget.Toast
 
 class CreateToast {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainPageActivity">
+    tools:context=".presentation.MainPageActivity">
 
 
     <EditText
@@ -77,12 +77,12 @@
             android:id="@+id/switch3"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            app:backgroundTint="@null"
             android:layout_weight="1"
             android:background="@drawable/shape_rounded_conteiners"
             android:fontFamily="@font/roboto"
             android:text="Price range"
             android:textColor="@color/defColor"
+            app:backgroundTint="@null"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     </LinearLayout>
@@ -103,28 +103,28 @@
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/defColor"
+        android:indeterminateTintMode="src_atop"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:indeterminate="true"
-        android:indeterminateTintMode="src_atop"
-        android:indeterminateTint="@color/defColor"/>
-<!--    android:progressDrawable="@drawable/progres_bar_style"-->
+        app:layout_constraintStart_toStartOf="parent" />
+    <!--    android:progressDrawable="@drawable/progres_bar_style"-->
 
     <ProgressBar
         android:id="@+id/defBar"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="60dp"
         android:layout_height="58dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/defColor"
+        android:indeterminateTintMode="src_atop"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:indeterminate="true"
-        android:indeterminateTintMode="src_atop"
-        android:indeterminateTint="@color/defColor"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
