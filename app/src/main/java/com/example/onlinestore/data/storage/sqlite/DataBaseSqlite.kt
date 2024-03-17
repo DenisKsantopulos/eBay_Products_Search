@@ -1,11 +1,14 @@
-package com.example.onlinestore.db
+package com.example.onlinestore.data.storage.sqlite
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.example.onlinestore.data.storage.UserStorage
+import com.example.onlinestore.data.storage.models.UserData
 
-class DataBase(val context: Context, val factory: SQLiteDatabase.CursorFactory?) :
+class DataBaseSqlite(val context: Context, val factory: SQLiteDatabase.CursorFactory?):
+    UserStorage,
     SQLiteOpenHelper(context, "app", factory, 1) {
     override fun onCreate(db: SQLiteDatabase?) {
         val query = "CREATE TABLE users (id INT PRIMARY KEY, login TEXT, email TEXT, pass TEXT)"
@@ -17,7 +20,7 @@ class DataBase(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
         onCreate(db)
     }
 
-    fun addUser(user: User) {
+    override fun add(user: UserData) {
         val values = ContentValues()
         values.put("login", user.login)
         values.put("email", user.email)
@@ -29,7 +32,7 @@ class DataBase(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
         db.close()
     }
 
-    fun getUser(login: String, pass: String): Boolean {
+    override fun get(login: String, pass: String): Boolean {
         val db = this.readableDatabase
 
         val result =

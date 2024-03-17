@@ -6,19 +6,20 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import com.example.onlinestore.R
+import com.example.onlinestore.data.repository.UserRepositoryImpl
+import com.example.onlinestore.data.storage.sqlite.DataBaseSqlite
 import com.example.onlinestore.databinding.ActivityLogInBinding
-import com.example.onlinestore.db.DataBase
+import com.example.onlinestore.domain.repository.UserRepository
 import com.example.onlinestore.domain.usecase.LogInUseCase
 import com.example.onlinestore.domain.utils.CreateToast
-import com.example.onlinestore.presentation.MainPageActivity
 
 class LogInActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLogInBinding
 
-    private val logInUseCase = LogInUseCase()
+    private val userRepository by lazy { UserRepositoryImpl(DataBaseSqlite(applicationContext, null)) }
+    private val logInUseCase by lazy { LogInUseCase(userRepository = userRepository) }
 
     val toast = CreateToast()
     override fun onCreate(savedInstanceState: Bundle?) {

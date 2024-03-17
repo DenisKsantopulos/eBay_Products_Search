@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.onlinestore.R
 import com.example.onlinestore.presentation.account.LogInActivity
 import com.example.onlinestore.databinding.ActivityMainPageBinding
 import com.example.onlinestore.domain.usecase.ClickFreeShipUseCase
@@ -30,6 +29,7 @@ class MainPageActivity : AppCompatActivity() {
 
     val toast = CreateToast()
     val find = FindItem()
+
     private val clickSearch = ClickSearchUseCase()
     private val clickFreeShip = ClickFreeShipUseCase()
     private val scrollToBottom = ScrollToBottomUseCase()
@@ -39,7 +39,6 @@ class MainPageActivity : AppCompatActivity() {
         binding = ActivityMainPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //val linkToLogIn: ImageButton = findViewById(R.id.imageButton2)
         val linkToLogIn: ImageButton = binding.imageButton2
 
         linkToLogIn.setOnClickListener {

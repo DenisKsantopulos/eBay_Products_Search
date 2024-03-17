@@ -6,11 +6,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import com.example.onlinestore.presentation.MainPageActivity
-import com.example.onlinestore.db.DataBase
 import com.example.onlinestore.R
-import com.example.onlinestore.db.User
+import com.example.onlinestore.data.repository.UserRepositoryImpl
+import com.example.onlinestore.data.storage.sqlite.DataBaseSqlite
 import com.example.onlinestore.domain.usecase.SingUpUseCase
 import com.example.onlinestore.domain.utils.CreateToast
 
@@ -18,7 +17,8 @@ class SingUpActivity : AppCompatActivity() {
 
     val toast = CreateToast()
 
-    private val singUp = SingUpUseCase()
+    private val userRepository by lazy { UserRepositoryImpl(DataBaseSqlite(applicationContext, null)) }
+    private val singUp by lazy { SingUpUseCase(userRepository) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sing_up)
