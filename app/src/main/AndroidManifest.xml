@@ -18,7 +18,7 @@
         android:theme="@style/Theme.OnlineStore"
         tools:targetApi="31">
         <activity
-            android:name=".api.EbayApi"
+            android:name=".data.remote.api.EbayApi"
             android:exported="false" />
         <activity
             android:name=".presentation.MainPageActivity"

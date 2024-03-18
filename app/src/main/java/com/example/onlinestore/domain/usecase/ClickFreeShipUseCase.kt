@@ -3,8 +3,12 @@ package com.example.onlinestore.domain.usecase
 import android.view.View
 import com.example.onlinestore.presentation.MainPageActivity
 import com.example.onlinestore.databinding.ActivityMainPageBinding
+import com.example.onlinestore.domain.models.DefValue
+import com.example.onlinestore.domain.utils.FindItem
 
-class ClickFreeShipUseCase {
+class ClickFreeShipUseCase(private val defValue: DefValue) {
+    private val findItem = FindItem(defValue)
+
     fun clickFreeShip(
         binding: ActivityMainPageBinding,
         activity: MainPageActivity,
@@ -12,20 +16,20 @@ class ClickFreeShipUseCase {
         //If already selected or not
         if (binding.sbFree.isSelected) {
             binding.sbFree.isSelected = false
-            activity.offset = 0
-            activity.noMoreItems = false
-            activity.filterName.remove("maxDeliveryCost:0")
+            defValue.offset = 0
+            defValue.noMoreItems = false
+            defValue.filterName.remove("maxDeliveryCost:0")
             binding.defBar.visibility = View.VISIBLE
             //findItem()
-            activity.find.findItem(binding, activity)
+            findItem.findItem(binding, activity)
         } else {
             binding.sbFree.isSelected = true
-            activity.filterName.add("maxDeliveryCost:0")
-            activity.offset = 0
-            activity.noMoreItems = false
+            defValue.filterName.add("maxDeliveryCost:0")
+            defValue.offset = 0
+            defValue.noMoreItems = false
             binding.defBar.visibility = View.VISIBLE
             //findItem()
-            activity.find.findItem(binding, activity)
+            findItem.findItem(binding, activity)
         }
     }
 }

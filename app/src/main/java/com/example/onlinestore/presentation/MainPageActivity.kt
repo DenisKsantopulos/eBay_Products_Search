@@ -11,7 +11,8 @@ import com.example.onlinestore.databinding.ActivityMainPageBinding
 import com.example.onlinestore.domain.usecase.ClickFreeShipUseCase
 import com.example.onlinestore.domain.usecase.ClickSearchUseCase
 import com.example.onlinestore.domain.usecase.ScrollToBottomUseCase
-import com.example.onlinestore.models.ItemSummary
+import com.example.onlinestore.data.remote.models.ItemSummary
+import com.example.onlinestore.domain.models.DefValue
 import com.example.onlinestore.domain.utils.CreateToast
 import com.example.onlinestore.domain.utils.FindItem
 
@@ -27,12 +28,13 @@ class MainPageActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainPageBinding
 
-    val toast = CreateToast()
-    val find = FindItem()
+    //val toast = CreateToast()
 
-    private val clickSearch = ClickSearchUseCase()
-    private val clickFreeShip = ClickFreeShipUseCase()
-    private val scrollToBottom = ScrollToBottomUseCase()
+    private val defValue = DefValue()
+    //val find = FindItem(defValue)
+    private val clickSearch = ClickSearchUseCase(defValue)
+    private val clickFreeShip = ClickFreeShipUseCase(defValue)
+    private val scrollToBottom = ScrollToBottomUseCase(defValue)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

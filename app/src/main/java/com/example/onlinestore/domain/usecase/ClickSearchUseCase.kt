@@ -3,22 +3,25 @@ package com.example.onlinestore.domain.usecase
 import android.view.View
 import com.example.onlinestore.presentation.MainPageActivity
 import com.example.onlinestore.databinding.ActivityMainPageBinding
+import com.example.onlinestore.domain.models.DefValue
+import com.example.onlinestore.domain.utils.FindItem
 
-class ClickSearchUseCase {
+class ClickSearchUseCase(private val defValue: DefValue) {
+    private val findItem = FindItem(defValue)
     fun clickSearch(
         binding: ActivityMainPageBinding,
         activity: MainPageActivity,
     ){
         if (binding.sv.text.toString() != "") {
-            activity.filterName = ArrayList()
-            activity.offset = 0
-            activity.noMoreItems = false
+            defValue.filterName = ArrayList()
+            defValue.offset = 0
+            defValue.noMoreItems = false
             binding.defBar.visibility = View.VISIBLE
             //findItem()
-            activity.find.findItem(binding, activity)
+            findItem.findItem(binding, activity)
         } else {
             //createToast("Please enter an item.")
-            activity.toast.showToastMessage("Please enter an item", activity)
+            defValue.toast.showToastMessage("Please enter an item", activity)
         }
     }
 }

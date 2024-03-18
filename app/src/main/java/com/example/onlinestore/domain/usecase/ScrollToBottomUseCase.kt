@@ -3,8 +3,11 @@ package com.example.onlinestore.domain.usecase
 import android.view.View
 import com.example.onlinestore.presentation.MainPageActivity
 import com.example.onlinestore.databinding.ActivityMainPageBinding
+import com.example.onlinestore.domain.models.DefValue
+import com.example.onlinestore.domain.utils.FindItem
 
-class ScrollToBottomUseCase {
+class ScrollToBottomUseCase(private val defValue: DefValue) {
+    private val findItem = FindItem(defValue)
     fun scrollToBottom(
         binding: ActivityMainPageBinding,
         activity: MainPageActivity,
@@ -14,13 +17,13 @@ class ScrollToBottomUseCase {
             val visibleCount = activity.layoutManager.childCount
             val pastVisible = activity.layoutManager.findFirstCompletelyVisibleItemPosition()
             val total = binding.rv.adapter?.itemCount
-            if (!activity.isLoading && !activity.noMoreItems) {
+            if (!defValue.isLoading && !defValue.noMoreItems) {
                 //if at the end of the list
                 if ((visibleCount + pastVisible) >= total!!) {
-                    activity.offset += 50
+                    defValue.offset += 50
                     binding.loadMoreBar.visibility = View.VISIBLE
                     //findItem()
-                    activity.find.findItem(binding, activity)
+                    findItem.findItem(binding, activity)
                 }
             }
         }

@@ -5,23 +5,24 @@ import android.util.Log
 import android.view.View
 import com.example.onlinestore.presentation.MainPageActivity
 import com.example.onlinestore.presentation.adapter.EbayItemAdapter
-import com.example.onlinestore.api.EbayApi
+import com.example.onlinestore.data.remote.api.EbayApi
 import com.example.onlinestore.databinding.ActivityMainPageBinding
-import com.example.onlinestore.models.Item
+import com.example.onlinestore.data.remote.models.Item
+import com.example.onlinestore.domain.models.DefValue
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class FindItem {
+class FindItem(private val defValue: DefValue) {
     fun findItem(
         binding: ActivityMainPageBinding,
         activity: MainPageActivity,
     ) {
 
-        activity.isLoading = true
-        activity.noMoreItems = false
+        defValue.isLoading = true
+        defValue.noMoreItems = false
 
         val url = "https://api.ebay.com/"
 
@@ -32,11 +33,11 @@ class FindItem {
 
         val api = retrofit.create(EbayApi::class.java)
 
-        val filtered = activity.filterName.joinToString(separator = ",")
+        val filtered = defValue.filterName.joinToString(separator = ",")
         println(filtered)
 
         //find items
-        api.findEbayItem(binding.sv.text.toString(), activity.offset, filtered).enqueue(object :
+        api.findEbayItem(binding.sv.text.toString(), defValue.offset, filtered).enqueue(object :
             Callback<Item> {
             @SuppressLint("NotifyDataSetChanged")
             override fun onResponse(call: Call<Item>, response: Response<Item>) {
@@ -52,26 +53,26 @@ class FindItem {
                 if (responseJson?.itemSummaries != null) {
 
                     //If users scroll to bottom and more items are available
-                    if (activity.offset > 0 && responseJson.itemSummaries.last() != activity.listOfItems.last()) {
-                        activity.listOfItems.addAll((responseJson.itemSummaries))
+                    if (defValue.offset > 0 && responseJson.itemSummaries.last() != defValue.listOfItems.last()) {
+                        defValue.listOfItems.addAll((responseJson.itemSummaries))
                         binding.rv.adapter?.notifyDataSetChanged()
-                        activity.isLoading = false
+                        defValue.isLoading = false
                         return
-                    } else if (activity.offset > 0) {
-                        activity.toast.showToastMessage("No more items", activity)
-                        activity.isLoading = false
-                        activity.noMoreItems = true
+                    } else if (defValue.offset > 0) {
+                        defValue.toast.showToastMessage("No more items", activity)
+                        defValue.isLoading = false
+                        defValue.noMoreItems = true
                         return
                     }
 
                     //send data to adapter
-                    activity.listOfItems = responseJson.itemSummaries
-                    binding.rv.adapter = EbayItemAdapter(activity.listOfItems, activity)
+                    defValue.listOfItems = responseJson.itemSummaries
+                    binding.rv.adapter = EbayItemAdapter(defValue.listOfItems, activity)
                 } else {
-                    activity.toast.showToastMessage("Can't find item", activity)
+                    defValue.toast.showToastMessage("Can't find item", activity)
                 }
 
-                activity.isLoading = false
+                defValue.isLoading = false
             }
 
             override fun onFailure(call: Call<Item>, t: Throwable) {
