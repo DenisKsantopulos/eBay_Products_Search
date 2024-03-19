@@ -4,37 +4,20 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.onlinestore.presentation.account.LogInActivity
 import com.example.onlinestore.databinding.ActivityMainPageBinding
-import com.example.onlinestore.domain.usecase.ClickFreeShipUseCase
-import com.example.onlinestore.domain.usecase.ClickSearchUseCase
-import com.example.onlinestore.domain.usecase.ScrollToBottomUseCase
-import com.example.onlinestore.data.remote.models.ItemSummary
-import com.example.onlinestore.domain.models.DefValue
-import com.example.onlinestore.domain.utils.CreateToast
-import com.example.onlinestore.domain.utils.FindItem
 
 class MainPageActivity : AppCompatActivity() {
-
-    var isLoading = false
-    var noMoreItems = false
-    var listOfItems: MutableList<ItemSummary> = ArrayList()
-    var offset = 0
-    var filterName: MutableList<String> = ArrayList()
 
     lateinit var layoutManager: LinearLayoutManager
 
     private lateinit var binding: ActivityMainPageBinding
 
-    //val toast = CreateToast()
-
-    private val defValue = DefValue()
-    //val find = FindItem(defValue)
-    private val clickSearch = ClickSearchUseCase(defValue)
-    private val clickFreeShip = ClickFreeShipUseCase(defValue)
-    private val scrollToBottom = ScrollToBottomUseCase(defValue)
+    private lateinit var vm: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +25,8 @@ class MainPageActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val linkToLogIn: ImageButton = binding.imageButton2
+
+        vm = ViewModelProvider(this, MainViewModelFactory()).get(MainViewModel::class.java)
 
         linkToLogIn.setOnClickListener {
             val intent = Intent(this, LogInActivity::class.java)
@@ -51,22 +36,26 @@ class MainPageActivity : AppCompatActivity() {
         layoutManager = LinearLayoutManager(this@MainPageActivity)
         binding.rv.layoutManager = layoutManager
 
+        vm.items.observe(this, Observer { items ->
+            vm.updateViewState(items)
+        })
+
         //click on search
         binding.btnSearch.setOnClickListener {
-            clickSearch.clickSearch(binding, this)
+            vm.click(binding, this)
         }
 
         //scroll to bottom(more item)
         binding.rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                scrollToBottom.scrollToBottom(binding, this@MainPageActivity, dy)
+                vm.scroll(binding, this@MainPageActivity, dy)
                 super.onScrolled(recyclerView, dx, dy)
             }
         })
 
         binding.sbFree.setOnClickListener {
             //If already selected or not
-            clickFreeShip.clickFreeShip(binding,this)
+            vm.clickFreeShip(binding, this)
         }
     }
 }

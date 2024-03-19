@@ -7,7 +7,7 @@ import com.example.onlinestore.presentation.MainPageActivity
 import com.example.onlinestore.presentation.adapter.EbayItemAdapter
 import com.example.onlinestore.data.remote.api.EbayApi
 import com.example.onlinestore.databinding.ActivityMainPageBinding
-import com.example.onlinestore.data.remote.models.Item
+import com.example.onlinestore.domain.models.Item
 import com.example.onlinestore.domain.models.DefValue
 import retrofit2.Call
 import retrofit2.Callback

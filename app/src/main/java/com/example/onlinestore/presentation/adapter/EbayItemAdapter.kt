@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.onlinestore.databinding.ItemListBinding
-import com.example.onlinestore.data.remote.models.ItemSummary
+import com.example.onlinestore.domain.models.ItemSummary
 import com.squareup.picasso.Picasso
 
 class EbayItemAdapter(private val result: List<ItemSummary>, private val context: Context) :

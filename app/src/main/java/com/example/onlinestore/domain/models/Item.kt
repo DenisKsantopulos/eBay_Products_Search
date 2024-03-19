@@ -1,4 +1,4 @@
-package com.example.onlinestore.data.remote.models
+package com.example.onlinestore.domain.models
 
 data class Item(
     val href: String,
