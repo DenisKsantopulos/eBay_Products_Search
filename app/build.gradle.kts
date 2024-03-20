@@ -61,4 +61,9 @@ dependencies {
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
 
+    implementation("io.insert-koin:koin-android:3.2.0")
+    implementation("io.insert-koin:koin-core:3.2.0")
+
+    testImplementation("io.insert-koin:koin-test:3.2.0")
+
 }

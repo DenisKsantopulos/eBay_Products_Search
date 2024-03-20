@@ -1,7 +1,7 @@
 package com.example.onlinestore.domain.usecase
 
 import android.view.View
-import com.example.onlinestore.presentation.MainPageActivity
+import com.example.onlinestore.presentation.mainpage.MainPageActivity
 import com.example.onlinestore.databinding.ActivityMainPageBinding
 import com.example.onlinestore.domain.models.DefValue
 import com.example.onlinestore.domain.utils.FindItem

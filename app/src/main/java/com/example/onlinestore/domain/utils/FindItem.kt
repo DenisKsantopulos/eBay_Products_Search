@@ -3,7 +3,7 @@ package com.example.onlinestore.domain.utils
 import android.annotation.SuppressLint
 import android.util.Log
 import android.view.View
-import com.example.onlinestore.presentation.MainPageActivity
+import com.example.onlinestore.presentation.mainpage.MainPageActivity
 import com.example.onlinestore.presentation.adapter.EbayItemAdapter
 import com.example.onlinestore.data.remote.api.EbayApi
 import com.example.onlinestore.databinding.ActivityMainPageBinding

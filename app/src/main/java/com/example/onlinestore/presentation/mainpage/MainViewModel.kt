@@ -1,4 +1,4 @@
-package com.example.onlinestore.presentation
+package com.example.onlinestore.presentation.mainpage
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,6 +8,7 @@ import com.example.onlinestore.domain.models.DefValue
 import com.example.onlinestore.domain.usecase.ClickFreeShipUseCase
 import com.example.onlinestore.domain.usecase.ClickSearchUseCase
 import com.example.onlinestore.domain.usecase.ScrollToBottomUseCase
+import com.example.onlinestore.presentation.mainpage.MainPageActivity
 
 class MainViewModel(
     private val clickSearch: ClickSearchUseCase,

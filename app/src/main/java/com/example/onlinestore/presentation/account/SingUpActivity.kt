@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import com.example.onlinestore.presentation.MainPageActivity
+import com.example.onlinestore.presentation.mainpage.MainPageActivity
 import com.example.onlinestore.R
 import com.example.onlinestore.data.repository.UserRepositoryImpl
 import com.example.onlinestore.data.storage.sqlite.DataBaseSqlite

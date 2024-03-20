@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.widget.EditText
 import com.example.onlinestore.domain.repository.UserRepository
-import com.example.onlinestore.presentation.MainPageActivity
+import com.example.onlinestore.presentation.mainpage.MainPageActivity
 import com.example.onlinestore.presentation.account.LogInActivity
 
 class LogInUseCase(private val userRepository: UserRepository) {

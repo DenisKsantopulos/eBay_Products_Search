@@ -1,4 +1,4 @@
-package com.example.onlinestore.presentation
+package com.example.onlinestore.presentation.mainpage
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.onlinestore.presentation.account.LogInActivity
 import com.example.onlinestore.databinding.ActivityMainPageBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainPageActivity : AppCompatActivity() {
 
@@ -17,7 +18,7 @@ class MainPageActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainPageBinding
 
-    private lateinit var vm: MainViewModel
+    private val vm by viewModel<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +26,6 @@ class MainPageActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val linkToLogIn: ImageButton = binding.imageButton2
-
-        vm = ViewModelProvider(this, MainViewModelFactory()).get(MainViewModel::class.java)
 
         linkToLogIn.setOnClickListener {
             val intent = Intent(this, LogInActivity::class.java)

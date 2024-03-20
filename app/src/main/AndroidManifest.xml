@@ -8,6 +8,7 @@
         android:maxSdkVersion="32" />
 
     <application
+        android:name=".app.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -21,7 +22,7 @@
             android:name=".data.remote.api.EbayApi"
             android:exported="false" />
         <activity
-            android:name=".presentation.MainPageActivity"
+            android:name=".presentation.mainpage.MainPageActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.account.LogInActivity"

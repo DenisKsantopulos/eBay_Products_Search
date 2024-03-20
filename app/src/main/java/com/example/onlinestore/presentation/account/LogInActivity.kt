@@ -10,7 +10,6 @@ import com.example.onlinestore.R
 import com.example.onlinestore.data.repository.UserRepositoryImpl
 import com.example.onlinestore.data.storage.sqlite.DataBaseSqlite
 import com.example.onlinestore.databinding.ActivityLogInBinding
-import com.example.onlinestore.domain.repository.UserRepository
 import com.example.onlinestore.domain.usecase.LogInUseCase
 import com.example.onlinestore.domain.utils.CreateToast
 
