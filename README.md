@@ -11,15 +11,15 @@
 </table>
 
 # eBay Products Search
-An application that uses the eBay API to list items in real time, written in Kotlin.
+An application that uses the eBay API to list items in real time, written in Kotlin and with Clean Architecture.
 https://developer.ebay.com
 ## Description
 This project utilizes eBay's Browse API to access real-time listings of items on ebay.com, using Kotlin programming language. Users have the ability to search for items and view details such as price with shipping, seller information and product condition. Additionally, users can select an item to be directed to its page on the browser or eBay mobile app (if installed). The project also offers filtering options like free shipping and price range(TODO). The user can register in the application and log in under his account in the future(used SQLite).
 # RU
-Приложение, использующее API eBay для вывода списка товаров в режиме реального времени, написанное на Kotlin.
+Приложение, использующее API eBay для вывода списка товаров в режиме реального времени, написанное на Kotlin с использованием Clean Architecture.
 https://developer.ebay.com
 ## Описание
-В этом проекте используется API-интерфейс браузера eBay для доступа к спискам товаров на ebay.com в режиме реального времени с использованием языка программирования Kotlin. Пользователи могут искать товары и просматривать такие детали, как "цена с доставкой", "информация о продавце" и "состояние товара". Кроме того, пользователи могут выбрать товар. При нажатии на него вы будете перенаправлены на его страницу в браузере или мобильном приложении eBay (если оно установлено). Вы также можете применять такие параметры фильтрации, как бесплатная доставка и диапазон цен (TODO). Пользователь может зарегестироваться в приложении и в будущем входить дод своим аккаунтом(использовал SQLite).
+В этом проекте используется API-интерфейс браузера eBay для доступа к спискам товаров на ebay.com в режиме реального времени с использованием языка программирования Kotlin. Пользователи могут искать товары и просматривать такие детали, как "цена с доставкой", "информация о продавце" и "состояние товара". Кроме того, пользователи могут выбрать товар. При нажатии на него вы будете перенаправлены на его страницу в браузере или мобильном приложении eBay (если оно установлено). Вы также можете применять такие параметры фильтрации, как бесплатная доставка и диапазон цен (TODO). Пользователь может зарегестироваться в приложении и в будущем входить под своим аккаунтом(использовал SQLite).
 # Demonstration
 <table>
   <tr>
@@ -33,5 +33,6 @@ https://developer.ebay.com
 # TODO
 - Add Firebase or Room
 - Add page with favorite products
-- MVVM
+- MVVM(remains to be completed)
+- Coroutines
 - Jetpack compose
