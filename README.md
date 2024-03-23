@@ -29,7 +29,12 @@ https://developer.ebay.com
     <td><img src="https://github.com/DenisKsantopulos/eBay_Products_Search/blob/master/my_res/search.gif" alt="home" width="250"></td>
   </tr>
 </table>
-
+# Стэк технологий
+- Clean Architecture
+- MVVM(remains to be completed)
+- Koin - DI фреймворк
+- Retrofit - Взаимодействие с сетью
+- SQLite - БД
 # TODO
 - Add Firebase or Room
 - Add page with favorite products
