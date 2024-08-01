@@ -15,6 +15,8 @@ An application that uses the eBay API to list items in real time, written in Kot
 https://developer.ebay.com
 ## Description
 This project utilizes eBay's Browse API to access real-time listings of items on ebay.com, using Kotlin programming language. Users have the ability to search for items and view details such as price with shipping, seller information and product condition. Additionally, users can select an item to be directed to its page on the browser or eBay mobile app (if installed). The project also offers filtering options like free shipping and price range(TODO). The user can register in the application and log in under his account in the future(used SQLite).
+# Instructions for launching the application
+In order for the products to be displayed, you need to set the API key in the line "Authorization:Bearer" in the file app/src/main/java/com/example/onlinestore/data/remote/api/EbayApi.kt, which is given on the website https://developer.ebay.com/my/api_test_tool?index=0&api=browse&call=item_summary_search__GET&variation=json&env=production after registration.
 # RU
 Приложение, использующее API eBay для вывода списка товаров в режиме реального времени, написанное на Kotlin с использованием Clean Architecture.
 https://developer.ebay.com
@@ -30,7 +32,9 @@ https://developer.ebay.com
   </tr>
 </table>
 
-# Стэк технологий
+# Инструкция по запуску приложения
+Для того, чтобы товары отображались нужно в файле app/src/main/java/com/example/onlinestore/data/remote/api/EbayApi.kt установить в строке "Authorization:Bearer" API-ключ, который дается на сайте https://developer.ebay.com/my/api_test_tool?index=0&api=browse&call=item_summary_search__GET&variation=json&env=production после регистрации.
+# Stack
 - Clean Architecture
 - MVVM(remains to be completed)
 - Koin - DI фреймворк
